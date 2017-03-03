@@ -396,6 +396,26 @@ void SimpleBLECentral_readRssiHandler(UArg a0);
 static uint8_t SimpleBLECentral_enqueueMsg(uint8_t event, uint8_t status,
                                            uint8_t *pData);
 
+
+
+//custom include and declarations
+
+/*********************************************************************
+ * CONSTANTS
+ */
+// Service UUID
+#define LED_SERVICE_SERV_UUID 0x1110
+
+// LED0 Characteristic defines
+#define LS_LED0_ID                 0
+#define LS_LED0_UUID               0x1111
+#define LS_LED0_LEN                1
+#define LS_LED0_LEN_MIN            1
+
+/*********************************************************************
+
+
+
 /*********************************************************************
  * PROFILE CALLBACKS
  */
@@ -1519,22 +1539,6 @@ static void SimpleBLECentral_startDiscovery(void)
     // and Server Rx MTU values
     VOID GATT_ExchangeMTU(connHandle, &req, selfEntity);
 }
-
-//tom code
-
-/*********************************************************************
- * CONSTANTS
- */
-// Service UUID
-#define LED_SERVICE_SERV_UUID 0x1110
-
-// LED0 Characteristic defines
-#define LS_LED0_ID                 0
-#define LS_LED0_UUID               0x1111
-#define LS_LED0_LEN                1
-#define LS_LED0_LEN_MIN            1
-
-
 
 /*********************************************************************
  * @fn      SimpleBLECentral_processGATTDiscEvent
