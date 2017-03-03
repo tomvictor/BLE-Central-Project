@@ -172,7 +172,7 @@
 #define DEFAULT_SVC_DISCOVERY_DELAY           1000
 
 // TRUE to filter discovery results on desired service UUID
-#define DEFAULT_DEV_DISC_BY_SVC_UUID          TRUE
+#define DEFAULT_DEV_DISC_BY_SVC_UUID          FALSE //TRUE
 
 // Length of bd addr as a string
 #define B_ADDR_STR_LEN                        15
@@ -379,6 +379,7 @@ static readRssi_t readRssi[MAX_NUM_BLE_CONNS];
 #define SERV_UUID LED_SERVICE_SERV_UUID
 //#define SERV_UUID SIMPLEPROFILE_SERV_UUID
 
+uint8 response[10], i = 0 ;
 
 
 
@@ -1640,7 +1641,12 @@ static void SimpleBLECentral_processGATTDiscEvent(gattMsgEvent_t *pMsg)
         {
             charHdl = BUILD_UINT16(pMsg->msg.readByTypeRsp.pDataList[0],
                                    pMsg->msg.readByTypeRsp.pDataList[1]);
-            Display_print0(dispHandle, ROW_THREE, 0, "Simple Svc Found");
+
+            for(i=0; i< pMsg->msg.readRsp.len; i++){
+                response[i] = pMsg->msg.readRsp.pValue ;
+            }
+
+            Display_print0(dispHandle, ROW_THREE, 0, "ok %s",response);
             procedureInProgress = FALSE;
         }
         discState = BLE_DISC_STATE_IDLE;
