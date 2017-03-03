@@ -354,7 +354,19 @@ static readRssi_t readRssi[MAX_NUM_BLE_CONNS];
 
 //custom includes and declarations
 
+// Service UUID
+#define LED_SERVICE_SERV_UUID 0x1110
+
+// LED0 Characteristic defines
+#define LS_LED0_ID                 0
+#define LS_LED0_UUID               0x1111
+#define LS_LED0_LEN                1
+#define LS_LED0_LEN_MIN            1
+
+
+
 #define SERV_UUID SIMPLEPROFILE_SERV_UUID
+//#define SERV_UUID SIMPLEPROFILE_SERV_UUID
 
 
 
