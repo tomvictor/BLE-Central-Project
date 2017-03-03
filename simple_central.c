@@ -376,7 +376,7 @@ static readRssi_t readRssi[MAX_NUM_BLE_CONNS];
 // Simple Profile Service UUID
 //#define SIMPLEPROFILE_SERV_UUID               0xFFF0
 
-#define SERV_UUID BATTERY_SERVICE_SERV_UUID
+#define SERV_UUID LED_SERVICE_SERV_UUID
 //#define SERV_UUID SIMPLEPROFILE_SERV_UUID
 
 
