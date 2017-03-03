@@ -351,6 +351,15 @@ static uint16_t maxPduSize;
 // Array of RSSI read structures
 static readRssi_t readRssi[MAX_NUM_BLE_CONNS];
 
+
+//custom includes and declarations
+
+#define SERV_UUID SIMPLEPROFILE_SERV_UUID
+
+
+
+
+
 /*********************************************************************
  * LOCAL FUNCTIONS
  */
@@ -395,26 +404,6 @@ void SimpleBLECentral_readRssiHandler(UArg a0);
 
 static uint8_t SimpleBLECentral_enqueueMsg(uint8_t event, uint8_t status,
                                            uint8_t *pData);
-
-
-
-//custom include and declarations
-
-/*********************************************************************
- * CONSTANTS
- */
-// Service UUID
-#define LED_SERVICE_SERV_UUID 0x1110
-
-// LED0 Characteristic defines
-#define LS_LED0_ID                 0
-#define LS_LED0_UUID               0x1111
-#define LS_LED0_LEN                1
-#define LS_LED0_LEN_MIN            1
-
-/*********************************************************************
-
-
 
 /*********************************************************************
  * PROFILE CALLBACKS
@@ -779,7 +768,7 @@ static void SimpleBLECentral_processRoleEvent(gapCentralRoleEvent_t *pEvent)
       {
           //Find peer device address by UUID
         if ( (DEFAULT_DEV_DISC_BY_SVC_UUID == FALSE) ||
-            SimpleBLECentral_findSvcUuid(LED_SERVICE_SERV_UUID,
+            SimpleBLECentral_findSvcUuid(SERV_UUID,
                                          pEvent->deviceInfo.pEvtData,
                                          pEvent->deviceInfo.dataLen))
         {
@@ -1539,6 +1528,22 @@ static void SimpleBLECentral_startDiscovery(void)
     // and Server Rx MTU values
     VOID GATT_ExchangeMTU(connHandle, &req, selfEntity);
 }
+
+//tom code
+
+/*********************************************************************
+ * CONSTANTS
+ */
+// Service UUID
+#define LED_SERVICE_SERV_UUID 0x1110
+
+// LED0 Characteristic defines
+#define LS_LED0_ID                 0
+#define LS_LED0_UUID               0x1111
+#define LS_LED0_LEN                1
+#define LS_LED0_LEN_MIN            1
+
+
 
 /*********************************************************************
  * @fn      SimpleBLECentral_processGATTDiscEvent
