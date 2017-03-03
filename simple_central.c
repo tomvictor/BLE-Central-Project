@@ -363,9 +363,20 @@ static readRssi_t readRssi[MAX_NUM_BLE_CONNS];
 #define LS_LED0_LEN                1
 #define LS_LED0_LEN_MIN            1
 
+// Service UUID
+#define BATTERY_SERVICE_SERV_UUID 0x180F
+
+// Battery Level Characteristic defines
+#define BS_BATTERY_LEVEL_ID                 0
+#define BS_BATTERY_LEVEL_UUID               0x2A19
+#define BS_BATTERY_LEVEL_LEN                1
+#define BS_BATTERY_LEVEL_LEN_MIN            1
 
 
-#define SERV_UUID SIMPLEPROFILE_SERV_UUID
+// Simple Profile Service UUID
+//#define SIMPLEPROFILE_SERV_UUID               0xFFF0
+
+#define SERV_UUID BATTERY_SERVICE_SERV_UUID
 //#define SERV_UUID SIMPLEPROFILE_SERV_UUID
 
 
